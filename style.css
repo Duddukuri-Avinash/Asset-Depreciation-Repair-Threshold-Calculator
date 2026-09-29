@@ -1,0 +1,175 @@
+:root{
+  --bg:#eef2f8;
+  --card:#ffffff;
+  --text:#0f1b2d;
+  --mute:#5b6b82;
+  --line:#e3e9f2;
+  --accent:#3b6ef5;
+  --g:#16a34a;
+  --o:#f59e0b;
+  --r:#e5484d;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+  line-height:1.5;
+}
+
+.wrap{max-width:960px;margin:0 auto;padding:0 18px}
+
+/* ---------- Top banner ---------- */
+.hero{
+  background:linear-gradient(135deg,#0f2247 0%,#2f5bea 100%);
+  color:#fff;
+  padding:40px 0 90px;
+}
+.hero h1{font-size:2rem;line-height:1.2;margin:12px 0 8px}
+.hero p{margin:0;max-width:600px;color:#d5e0ff;font-size:1.05rem}
+.badge{
+  display:inline-block;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.3);
+  padding:5px 12px;
+  border-radius:999px;
+  font-size:.8rem;
+}
+
+main{margin-top:-55px;padding-bottom:40px}
+
+/* ---------- Cards ---------- */
+.card{
+  background:var(--card);
+  border-radius:16px;
+  padding:22px;
+  margin-bottom:18px;
+  box-shadow:0 4px 18px rgba(15,34,71,.08);
+}
+.card h2{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:1.1rem;
+  margin:0 0 16px;
+}
+.step{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:28px;height:28px;
+  background:var(--accent);
+  color:#fff;
+  border-radius:50%;
+  font-size:.85rem;
+  font-weight:600;
+}
+.hint{margin:10px 0 0;font-size:.8rem;color:var(--mute)}
+
+/* ---------- Inputs ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+label{font-size:.82rem;font-weight:600;color:var(--mute);display:block}
+input,select{
+  width:100%;
+  margin-top:5px;
+  padding:10px 12px;
+  border:1.5px solid var(--line);
+  border-radius:10px;
+  background:#f8fafd;
+  color:var(--text);
+  font-size:.95rem;
+  transition:border-color .15s, box-shadow .15s;
+}
+input:focus,select:focus{
+  outline:none;
+  border-color:var(--accent);
+  background:#fff;
+  box-shadow:0 0 0 3px rgba(59,110,245,.15);
+}
+
+/* ---------- Buttons ---------- */
+button{
+  background:var(--accent);
+  color:#fff;
+  border:0;
+  border-radius:10px;
+  padding:11px 18px;
+  font-size:.95rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:transform .1s, box-shadow .15s, background .15s;
+}
+button:hover{background:#2c5ee6;box-shadow:0 4px 12px rgba(59,110,245,.35)}
+button:active{transform:translateY(1px)}
+button.ghost{background:#fff;color:var(--mute);border:1.5px solid var(--line)}
+button.ghost:hover{background:#f3f5f9;box-shadow:none}
+
+.row{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
+.grow{flex:1;min-width:160px}
+
+/* ---------- Alert ---------- */
+#alert{
+  border-radius:16px;
+  padding:22px 24px;
+  color:#fff;
+  margin-bottom:18px;
+  box-shadow:0 8px 24px rgba(15,34,71,.2);
+}
+#alert h2{color:#fff;font-size:1.4rem;margin:0 0 6px}
+#alert p{margin:3px 0;font-size:1rem}
+
+/* ---------- Number boxes ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.stat{
+  background:#f4f7fd;
+  border-left:4px solid var(--accent);
+  border-radius:10px;
+  padding:14px;
+}
+.stat b{display:block;font-size:1.4rem;color:var(--text)}
+.stat span{font-size:.8rem;color:var(--mute)}
+
+/* ---------- Tables ---------- */
+.scroll{overflow-x:auto;margin-top:16px}
+#summary{margin-top:0}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th{
+  text-align:left;
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--mute);
+  padding:8px 10px;
+  border-bottom:2px solid var(--line);
+}
+td{padding:10px;border-bottom:1px solid var(--line)}
+#log tr:nth-child(even) td{background:#fafbfe}
+#summary tr.pick{cursor:pointer}
+#summary tr.pick:hover td{background:#f0f5ff}
+#summary tr.active td{background:#e6eeff;font-weight:600}
+.x{
+  background:#fdecec;
+  color:var(--r);
+  padding:2px 10px;
+  font-size:1.1rem;
+  border-radius:8px;
+}
+.x:hover{background:var(--r);color:#fff;box-shadow:none}
+
+/* ---------- Chart ---------- */
+svg{width:100%;height:auto;display:block}
+.legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:10px;font-size:.85rem;color:var(--mute)}
+.legend i{display:inline-block;width:18px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.legend i.dash{background:none;border-top:2px dashed var(--mute);height:0}
+
+footer{text-align:center;color:var(--mute);font-size:.85rem;margin-top:10px}
+
+/* ---------- Phone screens ---------- */
+@media (max-width:600px){
+  .hero{padding:28px 0 80px}
+  .hero h1{font-size:1.5rem}
+  .card{padding:16px}
+}

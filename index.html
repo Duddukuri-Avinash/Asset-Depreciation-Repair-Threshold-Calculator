@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asset Depreciation & Repair Threshold Calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">🔧 Business Decision Tool</span>
+    <h1>Asset Depreciation & Repair Threshold Calculator</h1>
+    <p>Track repair costs, see your assets' value drop, and know when to stop fixing and start replacing.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="card">
+    <h2>All machines at a glance</h2>
+    <div class="scroll"><table id="summary"></table></div>
+    <p class="hint">Click a row to open that machine.</p>
+  </section>
+
+  <section class="card">
+    <div class="row">
+      <label class="grow">Selected machine<select id="picker"></select></label>
+      <button id="addMachine">+ Add machine</button>
+      <button class="ghost" id="delMachine">Delete machine</button>
+    </div>
+  </section>
+
+  <div id="alert"></div>
+
+  <section class="card">
+    <h2><span class="step">1</span> Machine details</h2>
+    <div class="grid">
+      <label>Machine name<input id="name"></label>
+      <label>Purchase price (₹)<input id="price" type="number"></label>
+      <label>Purchase date<input id="pdate" type="date"></label>
+      <label>Expected life (years)<input id="life" type="number" min="1"></label>
+      <label>New replacement price (₹)<input id="repl" type="number"></label>
+      <label>Alert limit (% of current value)<input id="limit" type="number" min="1"></label>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><span class="step">2</span> Repair log</h2>
+    <div class="row">
+      <label>Date<input id="rd" type="date"></label>
+      <label class="grow">What was repaired<input id="rw" placeholder="e.g. Engine overhaul"></label>
+      <label>Cost (₹)<input id="rc" type="number" placeholder="0"></label>
+      <button id="add">+ Add repair</button>
+      <button class="ghost" id="clear">Clear repairs</button>
+    </div>
+    <div class="scroll"><table id="log"></table></div>
+  </section>
+
+  <section class="card">
+    <h2><span class="step">3</span> Numbers worked out for you</h2>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section class="card">
+    <h2><span class="step">4</span> Value vs. repair spending</h2>
+    <div id="chart"></div>
+    <div class="legend">
+      <span><i style="background:var(--accent)"></i>Market value (going down)</span>
+      <span><i style="background:var(--r)"></i>Total repairs (going up)</span>
+      <span><i class="dash"></i>Today</span>
+    </div>
+  </section>
+
+  <footer>Built as a decision signal. Also think about downtime and reliability of a new model.</footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
